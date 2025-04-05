@@ -47,7 +47,7 @@ const ViewDataDetails = () => {
     return (
         <>
             {Data && (
-                <div className="px-4 md:px-12 py-8 bg-zinc-900 flex flex-col lg:flex-row gap-8 itms-start">
+                <div className="px-4 md:px-12 py-20 bg-zinc-900 flex flex-col lg:flex-row gap-8 itms-start">
                     <div className="w-full lg:w-3/6">
                         {" "}
                         <div className='flex flex-col lg:flex-row justify-around bg-zinc-800 p-12 rounded'>
