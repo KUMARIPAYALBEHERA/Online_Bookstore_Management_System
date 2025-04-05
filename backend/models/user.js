@@ -8,7 +8,7 @@ const user = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique:true,
+        unique: true,
     },
     password: {
         type: String,
@@ -20,32 +20,35 @@ const user = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default:"https://cdn-icons-png.flaticon.com/128/3177/3177440.png",
+        default: "https://cdn-icons-png.flaticon.com/128/3177/3177440.png",
     },
     role: {
         type: String,
-        default:"user",
-        enum:["user","admin"],
+        default: "user",
+        enum: ["user", "admin"],
     },
-    favourites:[
+    favourites: [
         {
-         type:mongoose.Types.ObjectId,
-         ref: "books",
+            type: mongoose.Types.ObjectId,
+            ref: "books",
         },
     ],
-    cart:[
+    cart: [
         {
-         type:mongoose.Types.ObjectId,
-         ref: "books",
+            type: mongoose.Types.ObjectId,
+            ref: "books",
         },
     ],
-    orders:[
+    orders: [
         {
-         type:mongoose.Types.ObjectId,
-         ref: "order",
+            type: mongoose.Types.ObjectId,
+            ref: "order",
         },
     ],
+    resetToken: String,
+    resetTokenExpiry: Date,
+
 },
-{ timestamps: true}
+    { timestamps: true }
 );
-module.exports = mongoose.model("user",user);
+module.exports = mongoose.model("user", user);

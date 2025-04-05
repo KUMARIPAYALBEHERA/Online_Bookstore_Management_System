@@ -17,6 +17,8 @@ import Settings from './components/Profile/Settings';
 import AllOrders from "./pages/AllOrders";
 import AddBook from './pages/AddBook';
 import UpdateBook from './pages/UpdateBook';
+import ForgotPassword from './pages/forgotPassword';
+import ResetPassword from './pages/ResetPassword';
 const App = () => {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.auth.role);
@@ -53,6 +55,8 @@ const App = () => {
         </Route>
         <Route exact path='/SignUp' element={<SignUp />} />
         <Route exact path='/LogIn' element={<LogIn />} />
+        <Route exact path='/forgot-password' element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route exact path='/updateBook/:id' element={<UpdateBook />} />
   
         <Route path="view-book-details/:id" element={<ViewBookDetails />} />

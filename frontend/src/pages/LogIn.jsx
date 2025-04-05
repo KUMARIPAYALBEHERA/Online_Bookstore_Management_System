@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { authActions } from "../store/auth";
 import axios from "axios";
 import { useDispatch } from 'react-redux';
+
 const LogIn = () => {
   const [Values, setValues] = useState({
     username: "",
@@ -10,10 +11,12 @@ const LogIn = () => {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const change = (e) => {
     const { name, value } = e.target;
     setValues({ ...Values, [name]: value });
   };
+
   const submit = async () => {
     try {
       if (Values.username === "" || Values.password === "") {
@@ -33,6 +36,7 @@ const LogIn = () => {
       alert(error.response.data.message);
     }
   };
+
   return (
     <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
       <div className="bg-zinc-800 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6">
@@ -70,7 +74,8 @@ const LogIn = () => {
           </div>
 
           <div className="mt-4">
-            <button className="w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition-all duration-300"
+            <button 
+              className="w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition-all duration-300"
               onClick={submit}>
               Log In
             </button>
@@ -84,6 +89,13 @@ const LogIn = () => {
             Don't have an account? &nbsp;
             <Link to="/signup" className="hover:text-blue-500">
               <u>Sign Up</u>
+            </Link>
+          </p>
+
+          {/* Forgot Password link */}
+          <p className="flex mt-4 items-center justify-center text-zinc-500 font-semibold">
+            <Link to="/forgot-password" className="hover:text-blue-500">
+              <u>Forgot Password?</u>
             </Link>
           </p>
         </div>
